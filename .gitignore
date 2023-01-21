@@ -1,0 +1,6 @@
+# Ignore build folders for each project
+/*/obj/
+/*/bin/
+
+# IDEs
+.vscode
