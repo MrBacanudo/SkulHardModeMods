@@ -7,6 +7,8 @@ using HarmonyLib;
 using Services;
 using Singletons;
 
+namespace LegendaryStart;
+
 [HarmonyPatch(typeof(ManufacturingMachineInteractive), "ActivateMachine")]
 public class LegendaryPatch
 {
