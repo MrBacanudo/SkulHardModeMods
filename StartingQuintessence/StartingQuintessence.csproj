@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <AssemblyName>QuintessenceStart</AssemblyName>
-    <Description>Start a hard mode run with skulls and items of any rarity</Description>
+    <Description>Start a hard mode run with a quintessence of any rarity</Description>
     <Version>0.0.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
