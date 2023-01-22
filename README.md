@@ -5,10 +5,14 @@
 
 ## Automatic Installation
 
-1. Download the [Downloader script](Downloader.ps1).
+1. Download the [Downloader script](Downloader.ps1)
+   * Shortcut: Right click [this link](https://raw.githubusercontent.com/MrBacanudo/SkulHardModeMods/main/Downloader.ps1) and `Save Link As...` to download the script
 2. Run with PowerShell
-    * [Learn how to Download Powershell here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)
+    * Right-clicking the file and selecting "Run with PowerShell" should work.
+    * No PowerShell in your machine? [Learn how to Download Powershell here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)
 3. Select the game folder (you may need to minimize your windows to see the dialog)
+    * Default is `C:\Program Files (x86)\Steam\steamapps\common\Skul` or `C:\Program Files\Steam\steamapps\common\Skul`
+      * You can find this by right clicking Skul on Steam -> Properties -> Local Files -> Browse
 4. If everything runs correctly, that should be it!
 
 ## Manual Installation
