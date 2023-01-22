@@ -34,7 +34,8 @@ public class QuintessencePatch
         {
             var itemMachine = GameObject.Find("ItemManufacturingMachine");
 
-            if(itemMachine == null){
+            if (itemMachine == null || itemMachine.GetComponentInChildren<ManufacturingMachineInteractive>() == null)
+            {
                 Debug.LogError("StartingQuintessence mod: Could not find an Item Machine to clone.");
                 return;
             }
