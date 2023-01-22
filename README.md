@@ -5,7 +5,11 @@
 
 ## Automatic Installation
 
-(Soon™)
+1. Download the [Downloader script](Downloader.ps1).
+2. Run with PowerShell
+    * [Learn how to Download Powershell here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)
+3. Select the game folder (you may need to minimize your windows to see the dialog)
+4. If everything runs correctly, that should be it!
 
 ## Manual Installation
 
