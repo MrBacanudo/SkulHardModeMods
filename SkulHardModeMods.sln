@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RerollsOnCastle", "RerollsO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartingQuintessence", "StartingQuintessence\StartingQuintessence.csproj", "{6F37A99E-0780-445E-9388-4BDE47260C1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenItemsAndSkullsStart", "HiddenItemsAndSkullsStart\HiddenItemsAndSkullsStart.csproj", "{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{6F37A99E-0780-445E-9388-4BDE47260C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F37A99E-0780-445E-9388-4BDE47260C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F37A99E-0780-445E-9388-4BDE47260C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
