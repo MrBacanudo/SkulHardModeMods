@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartingQuintessence", "Sta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenItemsAndSkullsStart", "HiddenItemsAndSkullsStart\HiddenItemsAndSkullsStart.csproj", "{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balrog", "Balrog\Balrog.csproj", "{5E9EC2E1-A02E-4DF4-BE65-A4F500009F01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECD5EBFD-FF4C-4141-B8A3-8FF88D9C47DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9EC2E1-A02E-4DF4-BE65-A4F500009F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9EC2E1-A02E-4DF4-BE65-A4F500009F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9EC2E1-A02E-4DF4-BE65-A4F500009F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9EC2E1-A02E-4DF4-BE65-A4F500009F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
