@@ -44,6 +44,9 @@ public class SpecialItemPatch
             "TheChosenMagesBadge",
             "TheChosenThiefsTwinSwords",
             "TheChosenWarriorsArmor",
+
+            // Slime's Item!
+            "MagicalWand",
         };
 
         // Add by order, so they're always grouped
