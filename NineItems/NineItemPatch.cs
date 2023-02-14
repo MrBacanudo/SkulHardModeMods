@@ -21,7 +21,7 @@ public class NineItemPatch
             return;
         }
 
-        // Only set to 9 the limit of Items. 2 Skulls is all you need!
-        self._selectCount = 9;
+        // Allow users to set how many items they want.
+        self._selectCount = Mathf.Max(0, Plugin.MaxItems.Value);
     }
 }
