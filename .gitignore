@@ -2,5 +2,8 @@
 /*/obj/
 /*/bin/
 
+# And for the Solution
+/build/
+
 # IDEs
 .vscode
