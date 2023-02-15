@@ -5,6 +5,15 @@
 
 ## Automatic Installation
 
+1. Download the [Downloader Executable](https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.4/SkulModDownloader.exe)
+2. Unblock the executable, telling Windows you trust me
+   * If you don't, Windows may prevent you from installing the mod
+3. Double click the executable
+   * If you see a prompt looking for a folder, select the Skul game folder
+4. Success! <sup>(probably)</sup>
+
+## Automatic Installation (Old)
+
 1. Download the [Downloader script](Downloader.ps1)
    * Shortcut: Right click [this link](https://raw.githubusercontent.com/MrBacanudo/SkulHardModeMods/main/Downloader.ps1) and `Save Link As...` to download the script
 2. Run with PowerShell
