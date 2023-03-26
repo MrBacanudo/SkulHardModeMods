@@ -35,6 +35,7 @@ public class SpecialItemPatch
             "ProofOfFellowship",
             "ContaminatedCore",
             "ChimerasFang",
+            "GraceOfLeonia",
             "ArchbishopsBible",
 
             // Adventurer Items
