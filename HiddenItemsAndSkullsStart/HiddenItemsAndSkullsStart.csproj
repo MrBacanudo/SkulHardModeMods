@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <AssemblyName>HiddenItemsAndSkullsStart</AssemblyName>
-    <Description>Start with items, skulls and quintessences that are hidden inside the game files</Description>
-    <Version>0.0.1</Version>
+    <Description>Start with usable items, skulls and quintessences that are hidden inside the game files</Description>
+    <Version>0.0.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>

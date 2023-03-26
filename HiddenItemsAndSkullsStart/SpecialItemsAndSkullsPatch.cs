@@ -26,7 +26,6 @@ public class SpecialItemsAndSkullsPatch
             "PlagueDoctor",
 
             // Hidden items
-            "LeoniasGrace",
 
             // Quintessences
             "Kiriz",
