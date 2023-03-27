@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <AssemblyName>RerollCurses</AssemblyName>
-    <Description>Allows rerolling curses at the upgrade screen, by pressing the Quintessence button</Description>
-    <Version>0.0.1</Version>
+    <Description>Allows selecting any curse at the upgrade screen, by pressing the RB/R1/Tab button</Description>
+    <Version>0.0.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="UpgradeFrame.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Package to easily set everything as public -->
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.0" />
 
@@ -50,12 +54,20 @@
       <HintPath>$(SkulRoot)/Skul_Data/Managed/Plugins.Singletons.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Plugins.Common" Publicize="true">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/Plugins.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UserInput" Publicize="true">
       <HintPath>$(SkulRoot)/Skul_Data/Managed/UserInput.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="InControl" Publicize="true">
       <HintPath>$(SkulRoot)/Skul_Data/Managed/InControl.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/UnityEngine.UI.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>

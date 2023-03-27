@@ -8,8 +8,8 @@ public class Plugin : BaseUnityPlugin
 {
     private void Awake()
     {
-        Harmony.CreateAndPatchAll(typeof(AllowRerollsPatch));
         Harmony.CreateAndPatchAll(typeof(RerollCursePanelPatch));
+        Harmony.CreateAndPatchAll(typeof(FullCursePanelPatch));
         Logger.LogInfo($"Mod {MyPluginInfo.PLUGIN_GUID} is loaded!");
     }
 }
