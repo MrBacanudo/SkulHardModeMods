@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balrog", "Balrog\Balrog.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevMenu", "DevMenu\DevMenu.csproj", "{B1A044EC-B725-4FE2-94B9-2EF017C08439}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomStart", "RandomStart\RandomStart.csproj", "{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,5 +80,9 @@ Global
 		{B1A044EC-B725-4FE2-94B9-2EF017C08439}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1A044EC-B725-4FE2-94B9-2EF017C08439}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1A044EC-B725-4FE2-94B9-2EF017C08439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
