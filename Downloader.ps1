@@ -32,7 +32,7 @@ try {
     Invoke-WebRequest -URI "https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_x64_5.4.21.0.zip" -OutFile $download_folder/BepInEx.zip
     Invoke-WebRequest -URI "https://unity.bepinex.dev/corlibs/$unity_version.zip" -OutFile $download_folder/corlib.zip
     Invoke-WebRequest -URI "https://unity.bepinex.dev/libraries/$unity_version.zip" -OutFile $download_folder/unity.zip
-    Invoke-WebRequest -URI "https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.4/AllMods.zip" -OutFile $download_folder/modpack.zip
+    Invoke-WebRequest -URI "https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.5/AllMods.zip" -OutFile $download_folder/modpack.zip
 } catch {
     [System.Windows.Forms.MessageBox]::Show("An error occured while trying to download files.", "Error")
     Exit

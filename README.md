@@ -5,7 +5,7 @@
 
 ## Automatic Installation
 
-1. Download the [Downloader Executable](https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.4/SkulModDownloader.exe)
+1. Download the [Downloader Executable](https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.5/SkulModDownloader.exe)
    * ⚠️ **Some anti-viruses will incorrectly report this as malware!** ⚠️ If having any issues, try the alternative installation methods below.
 2. Unblock the executable, telling Windows you trust me
    * If you don't, Windows may prevent you from installing the mod
