@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevMenu", "DevMenu\DevMenu.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomStart", "RandomStart\RandomStart.csproj", "{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixNPCs", "FixNPCs\FixNPCs.csproj", "{4341EE5D-9333-491F-BBE2-14E5087DCA57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DE91FB6-6092-4C0C-BAE7-C9642BF5CE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4341EE5D-9333-491F-BBE2-14E5087DCA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4341EE5D-9333-491F-BBE2-14E5087DCA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4341EE5D-9333-491F-BBE2-14E5087DCA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4341EE5D-9333-491F-BBE2-14E5087DCA57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
