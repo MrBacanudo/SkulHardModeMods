@@ -1,0 +1,7 @@
+{
+    "name": "NineItems",
+    "version_number": "0.0.2",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Allow picking any number of items on the castle",
+    "dependencies": []
+}

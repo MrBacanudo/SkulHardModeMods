@@ -1,0 +1,7 @@
+{
+    "name": "SpecialItemStart",
+    "version_number": "0.0.3",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Allow starting with items from the Adventurers and Bosses, or Sin and Omen inscriptions.",
+    "dependencies": []
+}

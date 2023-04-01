@@ -1,0 +1,11 @@
+{
+    "name": "MemePack2023",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "MrBacanudo's mod pack for April Fools 2023",
+    "dependencies": [
+        "MrBacanudo-BeelzWheelz-0.0.1",
+        "MrBacanudo-DeathTrap-0.0.1",
+        "MrBacanudo-ThreeSkulls-0.0.1"
+    ]
+}

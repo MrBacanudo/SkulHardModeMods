@@ -1,0 +1,7 @@
+{
+    "name": "RerollCurses",
+    "version_number": "0.0.2",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Allows selecting any curse at the upgrade screen, by pressing the RB/R1/Tab button",
+    "dependencies": []
+}
