@@ -1,0 +1,11 @@
+{
+    "name": "QoL_ModPack",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Quality of Life updates from MrBacanudo's mod pack",
+    "dependencies": [
+        "MrBacanudo-FixNPCs-0.0.1",
+        "MrBacanudo-RandomStart-0.0.2",
+        "MrBacanudo-RerollsOnCastle-0.0.2"
+    ]
+}
