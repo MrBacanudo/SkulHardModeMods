@@ -30,3 +30,10 @@ $memepack = @{
     DestinationPath = ".\build\packages\MemePack2023.zip"
 }
 Compress-Archive @memepack -Force
+
+$qolpack = @{
+    Path = ".modpacks\QualityofLife\manifest.json", ".modpacks\QualityofLife\icon.png", ".modpacks\QualityofLife\README.md"
+    CompressionLevel = "Optimal"
+    DestinationPath = ".\build\packages\QualityOfLife.zip"
+}
+Compress-Archive @qolpack -Force
