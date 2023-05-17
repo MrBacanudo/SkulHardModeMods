@@ -1,6 +1,6 @@
 {
     "name": "RandomStart",
-    "version_number": "0.0.1",
+    "version_number": "0.0.2",
     "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
     "description": "Allow starting with random items instead of having to pick.",
     "dependencies": []

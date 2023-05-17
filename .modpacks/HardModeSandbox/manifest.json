@@ -1,6 +1,6 @@
 {
     "name": "HardMode_Sandbox_ModPack",
-    "version_number": "0.0.5",
+    "version_number": "0.0.6",
     "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
     "description": "MrBacanudo's mod pack for the Dark Mirror Castle and Quality of Life updates",
     "dependencies": [
@@ -13,7 +13,7 @@
         "MrBacanudo-NineItems-0.0.2",
         "MrBacanudo-SpecialItemStart-0.0.3",
         "MrBacanudo-StartingQuintessence-0.0.1",
-        "MrBacanudo-RandomStart-0.0.1",
+        "MrBacanudo-RandomStart-0.0.2",
         "MrBacanudo-RerollCurses-0.0.2",
         "MrBacanudo-RerollsOnCastle-0.0.2"
     ]

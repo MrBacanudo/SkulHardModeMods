@@ -36,6 +36,7 @@ public class RandomPatch
         reference.icon = sprite;
 
         self._gearList.Insert(0, reference);
+        self._currentIndex = 1;
 
         active = false;
     }
