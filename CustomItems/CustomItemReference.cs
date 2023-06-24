@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using Characters;
 using Characters.Abilities;
@@ -99,10 +100,18 @@ public class CustomItemReference : ItemReference
 
     private static AbilityComponent CreateAbilityObject(GameObject parent, Ability ability)
     {
-        Type componentType;
 
-        if (AbilityMap.Map.TryGetValue(ability.GetType(), out componentType))
+        var abilityType = ability.GetType();
+        var assembly = abilityType.Assembly;
+        var componentName = abilityType.Name + "Component";
+        var possibleTypes = assembly.GetTypes()
+              .Where(type => String.Equals(type.Namespace, abilityType.Namespace, StringComparison.Ordinal)
+                          && String.Equals(type.Name, componentName, StringComparison.Ordinal))
+              .ToArray();
+
+        if (possibleTypes.Length == 1)
         {
+            var componentType = possibleTypes[0];
             GameObject abilityObj = new GameObject("Ability", new Type[] { componentType });
             abilityObj.transform.parent = parent.transform;
 
@@ -113,35 +122,8 @@ public class CustomItemReference : ItemReference
             return (AbilityComponent)component;
         }
 
-
-        /*switch (ability)
-        {
-            case ApplyStatusOnGaveDamage:
-                return MakeAbility<ApplyStatusOnGaveDamage, ApplyStatusOnGaveDamageComponent>(parent, ability);
-            case StatBonusPerGearTag:
-                return MakeAbility<StatBonusPerGearTag, StatBonusPerGearTagComponent>(parent, ability);
-            case StatBonusByAirTime:
-                return MakeAbility<StatBonusByAirTime, StatBonusByAirTimeComponent>(parent, ability);
-            case AddAirJumpCount:
-                return MakeAbility<AddAirJumpCount, AddAirJumpCountComponent>(parent, ability);
-        }*/
-
-        throw new NotImplementedException("Ability Type " + ability.GetType() + " not implemented yet.");
+        throw new NotImplementedException("Ability Component Type " + componentName + " not found.");
     }
-
-    /*
-    private static AbilityComponent MakeAbility<AbilityType, ComponentType>(GameObject parent, Ability ability)
-    where AbilityType : Ability
-    where ComponentType : AbilityComponent<AbilityType>
-    {
-        GameObject abilityObj = new GameObject("Ability", new Type[] { typeof(ComponentType) });
-        abilityObj.transform.parent = parent.transform;
-        ComponentType ab = abilityObj.GetComponent<ComponentType>();
-        ab._ability = (AbilityType)ability;
-
-        return ab;
-    }
-    */
 
     public void LoadSprites()
     {
