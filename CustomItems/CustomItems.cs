@@ -624,6 +624,39 @@ public class CustomItems
             items.Add(item);
         }
 
+        {
+            var item = new CustomItemReference();
+            item.name = "SymbolOfConfidence";
+            item.guid = "custom_item://" + item.name;
+            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
+            item.obtainable = true;
+            item.needUnlock = false;
+            item.rarity = Rarity.Unique;
+            item.displayNameKey = "item/" + item.name + "/name";
+
+            item.LoadSprites();
+
+            item.itemName = "Symbol of Confidence";
+            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
+            item.itemLore = "...";
+
+            item.prefabKeyword1 = Inscription.Key.Antique;
+            item.prefabKeyword2 = Inscription.Key.Fortress;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            StatBonusPerHPPercent bonus = new();
+
+            bonus._maxStat = new Stat.Values(new Stat.Value[] {
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 1.0),
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 1.0),
+            });
+
+            item.abilities = new Ability[] { bonus };
+
+            items.Add(item);
+        }
+
 
         return items.ToArray();
     }
