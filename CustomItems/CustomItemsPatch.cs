@@ -4,6 +4,7 @@ using System.Linq;
 using Characters.Gear;
 using Characters.Gear.Items;
 using Characters.Gear.Synergy.Inscriptions;
+using Characters.Player;
 using GameResources;
 using HarmonyLib;
 using Level;
@@ -19,6 +20,9 @@ public class CustomItemsPatch
 
     public delegate void ManatechPartDelegate();
     public static event ManatechPartDelegate OnManatechPart;
+
+    public delegate void InventoryUpdateDelegate(Inventory inventory);
+    public static event InventoryUpdateDelegate OnInventoryUpdate;
 
     // Inject our custom items to the game's list of items.
     // This only runs once, at the beginning of the game. So loading a save should also work.
@@ -157,5 +161,12 @@ public class CustomItemsPatch
     static void ManatechPickedupHook(Characters.Character character)
     {
         OnManatechPart?.Invoke();
+    }
+
+    [HarmonyPrefix]
+    [HarmonyPatch(typeof(Inventory), "UpdateSynergy")]
+    static void InventoryUpdateHook(ref Inventory __instance)
+    {
+        OnInventoryUpdate?.Invoke(__instance);
     }
 }

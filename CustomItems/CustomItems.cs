@@ -657,6 +657,37 @@ public class CustomItems
             items.Add(item);
         }
 
+        {
+            var item = new CustomItemReference();
+            item.name = "CloneCloneClone";
+            item.guid = "custom_item://" + item.name;
+            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
+            item.obtainable = true;
+            item.needUnlock = false;
+            item.rarity = Rarity.Legendary;
+            item.displayNameKey = "item/" + item.name + "/name";
+
+            item.LoadSprites();
+
+            item.itemName = "Clone Clone Clone";
+            item.itemDescription = "This item randonly gains 2 inscriptions.\n"
+                                 + "Increases the number of each inscription you have by 2.";
+            item.itemLore = "A true collector takes good care of their collection, with whole-hearted desire to keep it growing.";
+
+            item.prefabKeyword1 = Inscription.Key.None;
+            item.prefabKeyword2 = Inscription.Key.None;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+            item.abilities = new Ability[] { };
+
+            item.extraComponents = new[] {
+                typeof(KeywordRandomizer),
+                typeof(CloneCloneClone),
+            };
+
+            items.Add(item);
+        }
+
 
         return items.ToArray();
     }

@@ -32,6 +32,8 @@ public class CustomItemReference : ItemReference
 
     internal Ability[] abilities;
 
+    internal Type[] extraComponents;
+
     internal string[] forbiddenDrops = new string[0];
 
     private Item item = null;
@@ -88,6 +90,22 @@ public class CustomItemReference : ItemReference
                     aa._abilityComponent = CreateAbilityObject(attacherObj, abilities[i]);
 
                     attacher._components[i] = aa;
+                }
+            }
+
+            if (extraComponents != null && extraComponents.Length != 0)
+            {
+                GameObject extraBehaviors = new GameObject("Extra Behaviors");
+                extraBehaviors.transform.parent = item.gameObject.transform;
+
+                foreach (var componentType in extraComponents)
+                {
+                    Component component = extraBehaviors.AddComponent(componentType);
+                    FieldInfo field = AccessTools.Field(componentType, "_item");
+                    if (field != null)
+                    {
+                        field.SetValue(component, item);
+                    }
                 }
             }
 
