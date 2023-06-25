@@ -136,7 +136,7 @@ public class CustomItemReference : ItemReference
     {
         if (icon == null)
         {
-            icon = LoadSprite("Icon", 0.85f);
+            icon = LoadSprite("Icon", 32);
         }
         return icon;
     }
@@ -144,7 +144,7 @@ public class CustomItemReference : ItemReference
     {
         if (thumbnail == null)
         {
-            thumbnail = LoadSprite("Thumbnail", 2.12f);
+            thumbnail = LoadSprite("Thumbnail", 32);
 
             if (thumbnail != null)
             {
@@ -157,7 +157,7 @@ public class CustomItemReference : ItemReference
     {
         if (miniIcon == null)
         {
-            miniIcon = LoadSprite("AbilityIcon", 1.0f);
+            miniIcon = LoadSprite("AbilityIcon", 36);
 
             if (miniIcon != null)
             {
@@ -167,7 +167,7 @@ public class CustomItemReference : ItemReference
         return miniIcon;
     }
 
-    private Sprite LoadSprite(string type, float size)
+    private Sprite LoadSprite(string type, float pixelsPerUnit)
     {
         Sprite sprite = null;
 
@@ -185,7 +185,7 @@ public class CustomItemReference : ItemReference
 
             var side = Math.Max(texture.width, texture.height);
 
-            sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), side / size);
+            sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), pixelsPerUnit);
         }
         catch (Exception)
         {
