@@ -42,10 +42,17 @@ public class CustomItems
             item.prefabKeyword1 = Inscription.Key.Brave;
             item.prefabKeyword2 = Inscription.Key.Brave;
 
-            item.stats = new Stat.Values(new Stat.Value[]{
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            StatBonus bonus = new();
+
+            bonus._stat = new Stat.Values(new Stat.Value[]{
                 new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 1.5),
                 new Stat.Value(Stat.Category.Percent, Stat.Kind.MagicAttackDamage, 0),
             });
+
+            item.abilities = new Ability[] { bonus };
+
 
             items.Add(item);
         }
@@ -69,10 +76,16 @@ public class CustomItems
             item.prefabKeyword1 = Inscription.Key.Wisdom;
             item.prefabKeyword2 = Inscription.Key.Wisdom;
 
-            item.stats = new Stat.Values(new Stat.Value[]{
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            StatBonus bonus = new();
+
+            bonus._stat = new Stat.Values(new Stat.Value[]{
                 new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 1.5),
                 new Stat.Value(Stat.Category.Percent, Stat.Kind.PhysicalAttackDamage, 0),
             });
+
+            item.abilities = new Ability[] { bonus };
 
             items.Add(item);
         }
@@ -90,7 +103,7 @@ public class CustomItems
             item.LoadSprites();
 
             item.itemName = "Amulet of Duality";
-            item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> and <color=#F25D1C>Physical Attack</color> by 40%.";
+            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 40%.";
             item.itemLore = "With a taste for knowledge, undecided warrior Haxa could never succumb to pure brutality.";
 
             item.prefabKeyword1 = Inscription.Key.Brave;
