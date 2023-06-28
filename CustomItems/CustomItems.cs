@@ -685,9 +685,79 @@ public class CustomItems
                 typeof(CloneCloneClone),
             };
 
+            // items.Add(item);
+        }
+
+        {
+            var item = new CustomItemReference();
+            item.name = "OmenClone";
+            item.guid = "custom_item://" + item.name;
+            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
+            item.obtainable = false;
+            item.needUnlock = false;
+            item.rarity = Rarity.Unique;
+            item.displayNameKey = "item/" + item.name + "/name";
+
+            item.gearTag = Characters.Gear.Gear.Tag.Omen;
+
+            item.LoadSprites();
+
+            item.itemName = "Omen: Collective Obsession";
+            item.itemDescription = "This item gais one random inscription.\n"
+                                 + "When you have 14 or more different inscriptions, transform this item.";
+            item.itemLore = "...";
+
+            item.prefabKeyword1 = Inscription.Key.Omen;
+            item.prefabKeyword2 = Inscription.Key.None;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+            item.abilities = new Ability[] { };
+
+            item.extraComponents = new[] {
+                typeof(OmenKeywordRandomizer),
+                typeof(UpgradeOnInscriptionCount),
+            };
+
             items.Add(item);
         }
 
+        {
+            var item = new CustomItemReference();
+            item.name = "OmenClone_2";
+            item.guid = "custom_item://" + item.name;
+            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
+            item.obtainable = false;
+            item.needUnlock = false;
+            item.rarity = Rarity.Unique;
+            item.displayNameKey = "item/" + item.name + "/name";
+
+            // item.gearTag = Characters.Gear.Gear.Tag.Omen;
+
+            item.LoadSprites();
+
+            item.itemName = "Omen: Collective Insanity";
+            item.itemDescription = "This item gais one random inscription.\n"
+                                 + "Increases the number of each inscription you have by 1.\n"
+                                 + "Increases Collection Desire's inscription requirement by 1.";
+            item.itemLore = "...";
+
+            item.prefabKeyword1 = Inscription.Key.None;
+            item.prefabKeyword2 = Inscription.Key.None;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            item.abilities = new Ability[] {
+                new NerfCollectionDesire(){
+                    _count = 1
+                }
+            };
+
+            item.extraComponents = new[] {
+                typeof(CloneCloneClone),
+            };
+
+            items.Add(item);
+        }
 
         return items.ToArray();
     }

@@ -94,7 +94,7 @@ public sealed class CloneCloneClone : MonoBehaviour
             else
             {
 
-                bonus.count *= 2;
+                bonus.count *= 1; // TODO: make this multiplier a parameter
             }
         }
     }
