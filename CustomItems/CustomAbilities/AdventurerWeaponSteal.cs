@@ -37,6 +37,8 @@ public class AdventurerWeaponSteal : Ability, ICloneable
             {"Veteran Thief", "TheChosenThiefsTwinSwords"},
             {"Veteran Warrior", "TheChosenWarriorsArmor"},
         };
+        bool dropped = false;
+
         public Instance(Character owner, AdventurerWeaponSteal ability) : base(owner, ability)
         {
         }
@@ -45,7 +47,7 @@ public class AdventurerWeaponSteal : Ability, ICloneable
         {
             Character character = target.character;
 
-            if (character.type != Character.Type.Adventurer)
+            if (dropped || character.type != Character.Type.Adventurer)
             {
                 return;
             }
@@ -97,6 +99,8 @@ public class AdventurerWeaponSteal : Ability, ICloneable
 
                         var titlePosition = new Vector3(character.collider.bounds.center.x, character.collider.bounds.max.y + 1.0f, 0);
                         Singleton<Service>.Instance.floatingTextSpawner.SpawnBuff("YOUR SOUL IS MINE", titlePosition);
+
+                        dropped = true;
 
                         return;
                     }

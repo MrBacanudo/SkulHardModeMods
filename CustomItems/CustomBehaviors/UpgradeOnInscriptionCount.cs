@@ -41,11 +41,17 @@ public sealed class UpgradeOnInscriptionCount : MonoBehaviour
                 ItemRequest request = itemRef.LoadAsync();
                 request.WaitForCompletion();
 
-                Item newItem = Singleton<Service>.Instance.levelManager.DropItem(request, Vector3.zero);
-                newItem.keyword1 = _item.keyword1;
-                newItem.keyword2 = _item.keyword2;
-                newItem._gearTag = _item._gearTag;
-                _item.ChangeOnInventory(newItem);
+                if (_item.state == Characters.Gear.Gear.State.Equipped)
+                {
+                    Item newItem = Singleton<Service>.Instance.levelManager.DropItem(request, Vector3.zero);
+                    newItem.keyword1 = _item.keyword1;
+                    newItem.keyword2 = _item.keyword2;
+                    newItem._gearTag = _item._gearTag;
+                    _item.ChangeOnInventory(newItem);
+
+                    var titlePosition = new Vector3(_item.owner.collider.bounds.center.x, _item.owner.collider.bounds.max.y + 1.0f, 0);
+                    Singleton<Service>.Instance.floatingTextSpawner.SpawnBuff("IT'S INSANITY TIME!", titlePosition);
+                }
             }
         }
     }

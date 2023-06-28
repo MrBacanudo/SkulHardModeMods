@@ -756,6 +756,8 @@ public class CustomItems
                 typeof(CloneCloneClone),
             };
 
+            item.forbiddenDrops = new[] { "OmenClone" };
+
             items.Add(item);
         }
 
