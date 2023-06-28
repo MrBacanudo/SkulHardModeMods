@@ -309,7 +309,7 @@ public class CustomItems
             item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
             item.obtainable = true;
             item.needUnlock = false;
-            item.rarity = Rarity.Rare;
+            item.rarity = Rarity.Common;
             item.displayNameKey = "item/" + item.name + "/name";
 
             item.LoadSprites();
@@ -593,7 +593,6 @@ public class CustomItems
             items.Add(item);
         }
 
-
         {
             var item = new CustomItemReference();
             item.name = "AdventurerKiller";
@@ -606,8 +605,8 @@ public class CustomItems
 
             item.LoadSprites();
 
-            item.itemName = "...";
-            item.itemDescription = "Upon killing an adventurer, this item becomes that adventurer's legendary item.";
+            item.itemName = "Soul Extractor";
+            item.itemDescription = "Upon killing an adventurer, this item disappears and that adventurer's Legendary item is dropped.";
             item.itemLore = "...";
 
             item.prefabKeyword1 = Inscription.Key.Duel;
