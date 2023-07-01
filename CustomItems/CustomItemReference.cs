@@ -23,7 +23,7 @@ public class CustomItemReference : ItemReference
             _originalName = value;
             base.name = "Custom-" + _originalName;
             guid = "custom_item://" + value;
-            displayNameKey = "item/" + value + "/name";
+            displayNameKey = "item/" + base.name + "/name";
         }
     }
 
