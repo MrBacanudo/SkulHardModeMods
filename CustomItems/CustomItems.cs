@@ -255,7 +255,7 @@ public class CustomItems
             item.name = "BoneOfJumps";
             item.rarity = Rarity.Common;
 
-            item.itemName = "Wing Bone";
+            item.itemName = "Bone Wing";
             item.itemDescription = "Grants 1 extra jump (Except for Gargoyle).\n"
                                  + "Decreases gravity by 50%.\n"
                                  + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 25% while in midair.";
@@ -316,7 +316,8 @@ public class CustomItems
             item.obtainable = false; // Omens should be unobtainable
 
             item.itemName = "Omen: Root of All Evil";
-            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 1% for each 100 gold you have.";
+            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 1% for each 100 gold you have.\n"
+                                 + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 20% for each Treasure inscription you have.";
             item.itemLore = "Wealth is the true root of all power, for greed knows no bounds.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
@@ -331,7 +332,14 @@ public class CustomItems
                         new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 0.01),
                     }),
                     _goldPerStack = 100
-                }
+                },
+                new StatBonusByInscriptionCount(){
+                    _keys = new[]{Inscription.Key.Treasure},
+                    _statPerStack = new Stat.Values(new Stat.Value[] {
+                        new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 0.2),
+                        new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 0.2),
+                    })
+                },
             };
 
             items.Add(item);
