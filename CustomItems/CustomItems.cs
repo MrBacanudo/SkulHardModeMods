@@ -318,7 +318,7 @@ public class CustomItems
             item.itemDescription = "Grants 1 extra jump (Except for Gargoyle).\n"
                                  + "Decreases gravity by 50%.\n"
                                  + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 25% while in midair.";
-            item.itemLore = "???";
+            item.itemLore = "Float like a butterfly, sting like a bee!";
 
             item.prefabKeyword1 = Inscription.Key.Bone;
             item.prefabKeyword2 = Inscription.Key.Soar;
@@ -387,9 +387,9 @@ public class CustomItems
 
             item.LoadSprites();
 
-            item.itemName = "Omen: Curse of Greed";
+            item.itemName = "Omen: Root of All Evil";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 1% for each 100 gold you have.";
-            item.itemLore = "...";
+            item.itemLore = "Wealth is the true root of all power, for greed knows no bounds.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
             item.prefabKeyword2 = Inscription.Key.Treasure;
@@ -488,9 +488,9 @@ public class CustomItems
 
             item.LoadSprites();
 
-            item.itemName = "[Misfortune Brawl Item]";
+            item.itemName = "Spiked Brass Knuckles";
             item.itemDescription = "Increases crit damage by 10%.\nIncreases crit rate by 5%.";
-            item.itemLore = "???";
+            item.itemLore = "\"Life is not about how hard you hit\", said someone who keeps getting punched.";
 
             item.prefabKeyword1 = Inscription.Key.Misfortune;
             item.prefabKeyword2 = Inscription.Key.Brawl;
@@ -515,9 +515,9 @@ public class CustomItems
 
             item.LoadSprites();
 
-            item.itemName = "[Common Masterpiece Item]";
+            item.itemName = "Ornamental Axe";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 20%.";
-            item.itemLore = "???";
+            item.itemLore = "During times of distress, anything can be used as a weapon.";
 
             item.prefabKeyword1 = Inscription.Key.Masterpiece;
             item.prefabKeyword2 = Inscription.Key.Execution;
@@ -541,9 +541,9 @@ public class CustomItems
 
             item.LoadSprites();
 
-            item.itemName = "[Common Masterpiece Item, Evolved]";
+            item.itemName = "Honorary Battle-Axe";
             item.itemDescription = "Amplifies <color=#F25D1C>Physical Attack</color> by 20%.";
-            item.itemLore = "???";
+            item.itemLore = "A trusty weapon bound to a warrior's soul.";
 
             item.prefabKeyword1 = Inscription.Key.Masterpiece;
             item.prefabKeyword2 = Inscription.Key.Execution;
@@ -572,8 +572,8 @@ public class CustomItems
             item.LoadSprites();
 
             item.itemName = "Omen: Dark Tech Marvel";
-            item.itemDescription = "Picking up a Manatech part amplifies Skill Damage by 5% for 8 seconds (Up to 50%)";
-            item.itemLore = "???";
+            item.itemDescription = "Picking up a Manatech part amplifies Skill Damage by 5% for 5 seconds (Up to 50%)";
+            item.itemLore = "A paradoxical machine that never seems to stop running.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
             item.prefabKeyword2 = Inscription.Key.Manatech;
@@ -582,7 +582,7 @@ public class CustomItems
 
             StatBonusPerManatechPart bonus = new();
 
-            bonus._timeout = 8.0f;
+            bonus._timeout = 5.0f;
             bonus._maxStack = 10;
             bonus._statPerStack = new Stat.Values(new Stat.Value[] {
                 new Stat.Value(Stat.Category.Percent, Stat.Kind.SkillAttackDamage, 0.05),
@@ -607,7 +607,7 @@ public class CustomItems
 
             item.itemName = "Soul Extractor";
             item.itemDescription = "Upon killing an adventurer, this item disappears and that adventurer's Legendary item is dropped.";
-            item.itemLore = "...";
+            item.itemLore = "One's soul is the source of their most desirable posessions.";
 
             item.prefabKeyword1 = Inscription.Key.Duel;
             item.prefabKeyword2 = Inscription.Key.Execution;
@@ -637,7 +637,7 @@ public class CustomItems
 
             item.itemName = "Symbol of Confidence";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
-            item.itemLore = "...";
+            item.itemLore = "A master strategist's offense is always backed up by a powerful defense.";
 
             item.prefabKeyword1 = Inscription.Key.Antique;
             item.prefabKeyword2 = Inscription.Key.Fortress;
@@ -658,37 +658,6 @@ public class CustomItems
 
         {
             var item = new CustomItemReference();
-            item.name = "CloneCloneClone";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
-            item.rarity = Rarity.Legendary;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
-
-            item.itemName = "Clone Clone Clone";
-            item.itemDescription = "This item randonly gains 2 inscriptions.\n"
-                                 + "Increases the number of each inscription you have by 2.";
-            item.itemLore = "A true collector takes good care of their collection, with whole-hearted desire to keep it growing.";
-
-            item.prefabKeyword1 = Inscription.Key.None;
-            item.prefabKeyword2 = Inscription.Key.None;
-
-            item.stats = new Stat.Values(new Stat.Value[] { });
-            item.abilities = new Ability[] { };
-
-            item.extraComponents = new[] {
-                typeof(KeywordRandomizer),
-                typeof(CloneCloneClone),
-            };
-
-            // items.Add(item);
-        }
-
-        {
-            var item = new CustomItemReference();
             item.name = "OmenClone";
             item.guid = "custom_item://" + item.name;
             item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
@@ -704,13 +673,15 @@ public class CustomItems
             item.itemName = "Omen: Collective Obsession";
             item.itemDescription = "This item gais one random inscription.\n"
                                  + "When you have 14 or more different inscriptions, transform this item.";
-            item.itemLore = "...";
+            item.itemLore = "The heart of a true collector desires what it desires.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
             item.prefabKeyword2 = Inscription.Key.None;
 
             item.stats = new Stat.Values(new Stat.Value[] { });
-            item.abilities = new Ability[] { };
+            item.abilities = new Ability[] {
+                new InscriptionCountAbility(),
+            };
 
             item.extraComponents = new[] {
                 typeof(OmenKeywordRandomizer),
@@ -730,15 +701,13 @@ public class CustomItems
             item.rarity = Rarity.Unique;
             item.displayNameKey = "item/" + item.name + "/name";
 
-            // item.gearTag = Characters.Gear.Gear.Tag.Omen;
-
             item.LoadSprites();
 
             item.itemName = "Omen: Collective Insanity";
             item.itemDescription = "This item gais one random inscription.\n"
                                  + "Increases the number of each inscription you have by 1.\n"
                                  + "Increases Collection Desire's inscription requirement by 1.";
-            item.itemLore = "...";
+            item.itemLore = "I DON'T DESIRE ANYTHING ANYMORE! I HAVE EVERYTHING I'VE EVER WANTED!";
 
             item.prefabKeyword1 = Inscription.Key.None;
             item.prefabKeyword2 = Inscription.Key.None;
