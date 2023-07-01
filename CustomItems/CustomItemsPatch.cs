@@ -24,6 +24,8 @@ public class CustomItemsPatch
     public delegate void InventoryUpdateDelegate(Inventory inventory);
     public static event InventoryUpdateDelegate OnInventoryUpdate;
 
+    private static Dictionary<string, string> ItemStrings = new();
+
     // Inject our custom items to the game's list of items.
     // This only runs once, at the beginning of the game. So loading a save should also work.
     [HarmonyPrefix]
@@ -32,8 +34,11 @@ public class CustomItemsPatch
     {
         ref var self = ref __instance;
 
-        // Custom items
-        ItemReference[] customItems = CustomItems.Items;
+        // Load custom items
+        // Using method calls instead of static arrays so other mods can inject new items before initialization
+        ItemReference[] customItems = CustomItems.Items.ToArray();
+        CustomItems.LoadSprites();
+        ItemStrings = CustomItems.MakeStringDictionary();
 
         // Extend the items array to fit our custom items
         var oldLength = self._items.Length;
@@ -57,7 +62,7 @@ public class CustomItemsPatch
         ref var self = ref __instance;
 
         // Custom items
-        var customItems = CustomItems.Masterpieces;
+        var customItems = CustomItems.ListMasterpieces().ToArray();
 
         // Extend the items array to fit our custom items
         var oldLength = self._enhancementMaps.Length;
@@ -147,12 +152,12 @@ public class CustomItemsPatch
     [HarmonyPatch(typeof(Localization), "GetLocalizedString", new Type[] { typeof(string) })]
     static bool InjectCustomStrings(ref string __0, ref string __result)
     {
-        if (!CustomItems.Strings.ContainsKey(__0))
+        if (!ItemStrings.ContainsKey(__0))
         {
             return true;
         }
 
-        __result = CustomItems.Strings[__0];
+        __result = ItemStrings[__0];
         return false;
     }
 

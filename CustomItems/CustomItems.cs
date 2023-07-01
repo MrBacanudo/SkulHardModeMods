@@ -15,25 +15,15 @@ namespace CustomItems;
 
 public class CustomItems
 {
-    public static readonly CustomItemReference[] Items = InitializeItems();
-    public static readonly Dictionary<string, string> Strings = InitializeStrings();
+    public static readonly List<CustomItemReference> Items = InitializeItems();
 
-    public static readonly Masterpiece.EnhancementMap[] Masterpieces = InitializeMasterpieces();
-
-    private static CustomItemReference[] InitializeItems()
+    private static List<CustomItemReference> InitializeItems()
     {
         List<CustomItemReference> items = new();
         {
             var item = new CustomItemReference();
             item.name = "DecidedlyPhysical";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Legendary;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Orc King's Trusty Club";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 150%.\nYou cannot deal <color=#1787D8>Magic damage</color>.";
@@ -60,14 +50,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "PurelyMagical";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Legendary;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Raven Lord's Medallion";
             item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> by 150%.\nYou cannot deal <color=#F25D1C>Physical damage</color>.";
@@ -93,14 +76,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "WisdomAndCourage";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Rare;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Amulet of Duality";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 40%.";
@@ -120,14 +96,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "ElementalMess";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Legendary;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Quindent of Sadism";
             item.itemDescription = "Attacks and skills have +10% chance to inflict any status effect: Poison, Wound, Stun, Freeze or Burn.\n"
@@ -167,14 +136,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "FireAndIce";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Rare;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Elementalist's Staff";
             item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> by 25%.\n"
@@ -218,14 +180,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "PoisonAndBleed";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Rare;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Hydra's Fangs";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 25%.\n"
@@ -268,14 +223,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "CarleonHeritage";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Common;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Carleon's Flag";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 15% for each Carleon item you own.";
@@ -305,14 +253,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "BoneOfJumps";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Common;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Wing Bone";
             item.itemDescription = "Grants 1 extra jump (Except for Gargoyle).\n"
@@ -346,14 +287,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "TalariaOfMercury";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Talaria of Mercury";
             item.itemDescription = "Grants 1 extra dash.\nIncreases movement speed by 50%.";
@@ -376,16 +310,10 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "TheTreasureOmen";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = false;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
 
             item.gearTag = Characters.Gear.Gear.Tag.Omen;
-
-            item.LoadSprites();
+            item.obtainable = false; // Omens should be unobtainable
 
             item.itemName = "Omen: Root of All Evil";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 1% for each 100 gold you have.";
@@ -412,14 +340,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "PandorasBox";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Legendary;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Pandora's Box";
             item.itemDescription = "Upon pickup, replace each item with a random item of higher rarity.\nYou gain 500 gold per item destroyed.";
@@ -440,14 +361,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "QuintDamageBuff";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Rare;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Claws of Raptor";
             item.itemDescription = "Amplifies Quintessence damage by 30%.\nIncreases crit damage by 15%.";
@@ -479,18 +393,11 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "MisfortuneBrawl";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Common;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Spiked Brass Knuckles";
             item.itemDescription = "Increases crit damage by 10%.\nIncreases crit rate by 5%.";
-            item.itemLore = "\"Life is not about how hard you hit\", said someone who keeps getting punched.";
+            item.itemLore = "There is no such thing as a fair fight. Only a fight you win.";
 
             item.prefabKeyword1 = Inscription.Key.Misfortune;
             item.prefabKeyword2 = Inscription.Key.Brawl;
@@ -506,14 +413,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "CommonMasterpiece";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Common;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Ornamental Axe";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 20%.";
@@ -532,14 +432,8 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "CommonMasterpiece_2";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = false;
-            item.needUnlock = false;
+            item.obtainable = false; // Evolutions should not be obtainable by default
             item.rarity = Rarity.Common;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Honorary Battle-Axe";
             item.itemDescription = "Amplifies <color=#F25D1C>Physical Attack</color> by 20%.";
@@ -560,16 +454,10 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "TheManatechOmen";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = false;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
 
             item.gearTag = Characters.Gear.Gear.Tag.Omen;
-
-            item.LoadSprites();
+            item.obtainable = false; // Omens should be unobtainable
 
             item.itemName = "Omen: Dark Tech Marvel";
             item.itemDescription = "Picking up a Manatech part amplifies Skill Damage by 5% for 5 seconds (Up to 50%)";
@@ -596,14 +484,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "AdventurerKiller";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Soul Extractor";
             item.itemDescription = "Upon killing an adventurer, this item disappears and that adventurer's Legendary item is dropped.";
@@ -626,14 +507,7 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "SymbolOfConfidence";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = true;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Symbol of Confidence";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
@@ -659,16 +533,10 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "OmenClone";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = false;
-            item.needUnlock = false;
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
 
             item.gearTag = Characters.Gear.Gear.Tag.Omen;
-
-            item.LoadSprites();
+            item.obtainable = false; // Omens should be unobtainable
 
             item.itemName = "Omen: Collective Obsession";
             item.itemDescription = "This item gais one random inscription.\n"
@@ -694,14 +562,8 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "OmenClone_2";
-            item.guid = "custom_item://" + item.name;
-            item.path = "Assets/Gear/Items/BasicCarleonSword.prefab";
-            item.obtainable = false;
-            item.needUnlock = false;
+            item.obtainable = false; // Omens are not obtainable, and neither should be evolutions.
             item.rarity = Rarity.Unique;
-            item.displayNameKey = "item/" + item.name + "/name";
-
-            item.LoadSprites();
 
             item.itemName = "Omen: Collective Insanity";
             item.itemDescription = "This item gais one random inscription.\n"
@@ -709,6 +571,8 @@ public class CustomItems
                                  + "Increases Collection Desire's inscription requirement by 1.";
             item.itemLore = "I DON'T DESIRE ANYTHING ANYMORE! I HAVE EVERYTHING I'VE EVER WANTED!";
 
+            // Omens are unobtainable, so they are found by their tag.
+            // So we don't put the Omen tag or inscription here, and leave for the evolution process to copy them.
             item.prefabKeyword1 = Inscription.Key.None;
             item.prefabKeyword2 = Inscription.Key.None;
 
@@ -729,12 +593,17 @@ public class CustomItems
             items.Add(item);
         }
 
-        return items.ToArray();
+        return items;
     }
 
-    private static Dictionary<string, string> InitializeStrings()
+    internal static void LoadSprites()
     {
-        Dictionary<string, string> strings = new(Items.Length * 8);
+        Items.ForEach(item => item.LoadSprites());
+    }
+
+    internal static Dictionary<string, string> MakeStringDictionary()
+    {
+        Dictionary<string, string> strings = new(Items.Count * 8);
 
         foreach (var item in Items)
         {
@@ -746,7 +615,7 @@ public class CustomItems
         return strings;
     }
 
-    private static Masterpiece.EnhancementMap[] InitializeMasterpieces()
+    internal static List<Masterpiece.EnhancementMap> ListMasterpieces()
     {
         List<Masterpiece.EnhancementMap> maps = new();
 
@@ -771,6 +640,6 @@ public class CustomItems
             }
         }
 
-        return maps.ToArray();
+        return maps;
     }
 }

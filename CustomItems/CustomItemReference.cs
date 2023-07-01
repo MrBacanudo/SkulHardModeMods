@@ -22,24 +22,32 @@ public class CustomItemReference : ItemReference
         {
             _originalName = value;
             base.name = "Custom-" + _originalName;
+            guid = "custom_item://" + value;
+            displayNameKey = "item/" + value + "/name";
         }
     }
 
-    internal string itemName;
-    internal string itemDescription;
-    internal string itemLore;
-    internal Stat.Values stats;
+    public string itemName;
+    public string itemDescription;
+    public string itemLore;
+    public Stat.Values stats;
 
-    internal Ability[] abilities;
+    public Ability[] abilities;
 
-    internal Type[] extraComponents;
+    public Type[] extraComponents;
 
-    internal string[] forbiddenDrops = new string[0];
-
+    public string[] forbiddenDrops = new string[0];
+    public Sprite miniIcon;
     private Item item = null;
-    private Sprite miniIcon;
 
     private static GameObject rootObj = null;
+
+    public CustomItemReference()
+    {
+        obtainable = true;
+        needUnlock = false;
+        path = "Assets/Gear/Items/BasicCarleonSword.prefab";
+    }
 
     public Item GetItem(Item baseItem)
     {
