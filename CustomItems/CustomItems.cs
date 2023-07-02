@@ -546,10 +546,10 @@ public class CustomItems
             item.gearTag = Characters.Gear.Gear.Tag.Omen;
             item.obtainable = false; // Omens should be unobtainable
 
-            item.itemName = "Omen: Collective Obsession";
+            item.itemName = "Omen: Cryptic Collectible";
             item.itemDescription = "This item gais one random inscription.\n"
                                  + "When you have 14 or more different inscriptions, transform this item.";
-            item.itemLore = "The heart of a true collector desires what it desires.";
+            item.itemLore = "The heart of a true collector desires what it desires. Even when it doesn't know what it contains.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
             item.prefabKeyword2 = Inscription.Key.None;
@@ -573,7 +573,7 @@ public class CustomItems
             item.obtainable = false; // Omens are not obtainable, and neither should be evolutions.
             item.rarity = Rarity.Unique;
 
-            item.itemName = "Omen: Collective Insanity";
+            item.itemName = "Omen: Idol of Insanity";
             item.itemDescription = "This item gais one random inscription.\n"
                                  + "Increases the number of each inscription you have by 1.\n"
                                  + "Increases Collection Desire's inscription requirement by 1.";
