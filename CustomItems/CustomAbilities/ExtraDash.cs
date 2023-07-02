@@ -3,6 +3,7 @@ using System.Linq;
 using Characters;
 using Characters.Abilities;
 using Characters.Actions;
+using Characters.Actions.Constraints;
 using Characters.Gear.Weapons;
 using UnityEngine;
 using Action = Characters.Actions.Action;
@@ -31,6 +32,13 @@ public class ExtraDash : Ability, ICloneable
                 streak.timeout = (streak.timeout / (streak.count + 1)) * (streak.count + 1 + ability._count);
                 streak.count += ability._count;
             }
+
+            // Gargoyle has limited air dashes: add more
+            var dashConstraint = obj.transform.Find("Equipped/Dash_Air")?.GetComponentInChildren<LimitedTimesOnAirConstraint>(true);
+            if (dashConstraint != null)
+            {
+                dashConstraint._maxTimes += ability._count;
+            }
         }
 
         private void MinusDash(Component obj)
@@ -43,6 +51,13 @@ public class ExtraDash : Ability, ICloneable
                 streak.count -= ability._count;
                 if (streak.count < 0) { streak.count = 0; } // Just in case
             }
+
+            // Undo Gargoyle
+            var dashConstraint = obj.transform.Find("Equipped/Dash_Air")?.GetComponentInChildren<LimitedTimesOnAirConstraint>(true);
+            if (dashConstraint != null)
+            {
+                dashConstraint._maxTimes -= ability._count;
+            }
         }
 
         private void WeaponChange(Weapon w1, Weapon w2)
@@ -53,13 +68,25 @@ public class ExtraDash : Ability, ICloneable
 
         public override void OnAttach()
         {
-            PlusDash(owner);
+            foreach (var weapon in owner.playerComponents.inventory.weapon.weapons)
+            {
+                if (weapon)
+                {
+                    PlusDash(weapon);
+                }
+            }
             owner.playerComponents.inventory.weapon.onChanged += WeaponChange;
         }
 
         public override void OnDetach()
         {
-            MinusDash(owner);
+            foreach (var weapon in owner.playerComponents.inventory.weapon.weapons)
+            {
+                if (weapon)
+                {
+                    MinusDash(weapon);
+                }
+            }
             owner.playerComponents.inventory.weapon.onChanged -= WeaponChange;
         }
     }
