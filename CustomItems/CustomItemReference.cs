@@ -71,6 +71,8 @@ public class CustomItemReference : ItemReference
             item._rarity = rarity;
             item._gearTag = gearTag;
 
+            item._groupItemKeys = forbiddenDrops;
+
             LoadSprites();
             if (icon != null)
             {
