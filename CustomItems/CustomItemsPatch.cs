@@ -99,25 +99,22 @@ public class CustomItemsPatch
     // If the item is one of our placeholders, we instead just drop the correct item.
     [HarmonyPrefix]
     [HarmonyPatch(typeof(LevelManager), "DropItem", new Type[] { typeof(ItemRequest), typeof(Vector3) })]
-    static bool DropCustomItem(ref LevelManager __instance, ref ItemRequest __0, ref Vector3 __1, ref Item __result)
+    static bool DropCustomItem(ref LevelManager __instance, ItemRequest gearRequest, Vector3 position, ref Item __result)
     {
-        ref var request = ref __0;
-        ref var position = ref __1;
-
         // We leave it to the game in case it's not a custom item
-        if (!currentRequests.ContainsKey(request))
+        if (!currentRequests.ContainsKey(gearRequest))
         {
             return true;
         }
 
-        var customItem = currentRequests[request];
+        var customItem = currentRequests[gearRequest];
 
         // Now we drop our item and skip the regular process
-        var originalItem = customItem.GetItem(request.asset.gameObject.GetComponent<Item>());
+        var originalItem = customItem.GetItem(gearRequest.asset.gameObject.GetComponent<Item>());
         //originalItem.gameObject.SetActive(true);
         __result = __instance.DropItem(originalItem, position);
         //originalItem.gameObject.SetActive(false);
-        currentRequests.Remove(request);
+        currentRequests.Remove(gearRequest);
 
         return false;
     }
@@ -125,39 +122,36 @@ public class CustomItemsPatch
     // TODO: undo ugly duplication
     [HarmonyPrefix]
     [HarmonyPatch(typeof(LevelManager), "DropGear", new Type[] { typeof(GearRequest), typeof(Vector3) })]
-    static bool DropCustomGear(ref LevelManager __instance, ref GearRequest __0, ref Vector3 __1, ref Gear __result)
+    static bool DropCustomGear(ref LevelManager __instance, GearRequest gearRequest, Vector3 position, ref Gear __result)
     {
-        ref var request = ref __0;
-        ref var position = ref __1;
-
         // We leave it to the game in case it's not a custom item
-        if (!currentGearRequests.ContainsKey(request))
+        if (!currentGearRequests.ContainsKey(gearRequest))
         {
             return true;
         }
 
-        var customItem = currentGearRequests[request];
+        var customItem = currentGearRequests[gearRequest];
 
         // Now we drop our item and skip the regular process
-        var originalItem = customItem.GetItem(request.asset.gameObject.GetComponent<Item>());
+        var originalItem = customItem.GetItem(gearRequest.asset.gameObject.GetComponent<Item>());
         //originalItem.gameObject.SetActive(true);
         __result = __instance.DropItem(originalItem, position);
         //originalItem.gameObject.SetActive(false);
-        currentGearRequests.Remove(request);
+        currentGearRequests.Remove(gearRequest);
 
         return false;
     }
 
     [HarmonyPrefix]
     [HarmonyPatch(typeof(Localization), "GetLocalizedString", new Type[] { typeof(string) })]
-    static bool InjectCustomStrings(ref string __0, ref string __result)
+    static bool InjectCustomStrings(string key, ref string __result)
     {
-        if (!ItemStrings.ContainsKey(__0))
+        if (!ItemStrings.ContainsKey(key))
         {
             return true;
         }
 
-        __result = ItemStrings[__0];
+        __result = ItemStrings[key];
         return false;
     }
 
