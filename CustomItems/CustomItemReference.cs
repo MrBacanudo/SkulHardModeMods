@@ -217,7 +217,8 @@ public class CustomItemReference : ItemReference
         }
         catch (Exception)
         {
-            Debug.LogWarning("[CustomItems] Could not load the " + type + " sprite for " + name);
+            // Just ignore these.
+            // Debug.LogWarning("[CustomItems] Could not load the " + type + " sprite for " + name);
         }
 
         return sprite;

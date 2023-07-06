@@ -89,6 +89,7 @@ public class NerfCollectionDesire : Ability, ICloneable
         return new NerfCollectionDesire()
         {
             _count = _count,
+            _defaultIcon = _defaultIcon,
         };
     }
 }

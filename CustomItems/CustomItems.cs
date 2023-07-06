@@ -101,7 +101,7 @@ public class CustomItems
             item.itemName = "Quindent of Sadism";
             item.itemDescription = "Attacks and skills have +10% chance to inflict any status effect: Poison, Wound, Stun, Freeze or Burn.\n"
                                 + "(Freeze and Stun bonuses have an internal cooldown of 4 seconds.)";
-            item.itemLore = "The Demonlord Beelz gets stronger by seeing all the pain and suffering on everyone around him.";
+            item.itemLore = "The Demonlord Beelz becomes stronger by inflicting pain and suffering on everyone around him.";
 
             item.prefabKeyword1 = Inscription.Key.Execution;
             item.prefabKeyword2 = Inscription.Key.Misfortune;
@@ -182,10 +182,10 @@ public class CustomItems
             item.name = "PoisonAndBleed";
             item.rarity = Rarity.Rare;
 
-            item.itemName = "Hydra's Fangs";
+            item.itemName = "Poisoned Rope Dart";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 25%.\n"
                                 + "Skills have +5% chance to inflict Poison or Wound.";
-            item.itemLore = "Hydras are known for their venom, but victims of their bite would never stop bleeding.";
+            item.itemLore = "In skilled hands, this kunai brings death as swiftly as a Scorpion's sting.";
 
             item.prefabKeyword1 = Inscription.Key.Poisoning;
             item.prefabKeyword2 = Inscription.Key.ExcessiveBleeding;
@@ -256,8 +256,8 @@ public class CustomItems
             item.rarity = Rarity.Common;
 
             item.itemName = "Bone Wing";
-            item.itemDescription = "Grants 1 extra jump (Except for Gargoyle).\n"
-                                 + "Decreases gravity by 50%.\n"
+            item.itemDescription = "Grants 1 extra jump and decreases gravity by 50%.\n"
+                                 + "(Gargoyle: reduces falling speed while attacking or using skills instead)\n"
                                  + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 25% while in midair.";
             item.itemLore = "Float like a butterfly, sting like a bee!";
 
@@ -373,7 +373,7 @@ public class CustomItems
 
             item.itemName = "Claws of Raptor";
             item.itemDescription = "Amplifies Quintessence damage by 30%.\nIncreases crit damage by 15%.";
-            item.itemLore = "No one has ever seen the monster that possessed such powerful claws. At least no one who survived.";
+            item.itemLore = "No one has ever seen the monster that possessed such powerful claws and survived to tell the story.";
 
             item.prefabKeyword1 = Inscription.Key.Heritage;
             item.prefabKeyword2 = Inscription.Key.Misfortune;
@@ -445,7 +445,7 @@ public class CustomItems
 
             item.itemName = "Honorary Battle-Axe";
             item.itemDescription = "Amplifies <color=#F25D1C>Physical Attack</color> by 20%.";
-            item.itemLore = "A trusty weapon bound to a warrior's soul.";
+            item.itemLore = "A weapon reforged by the fire of its warrior's soul.";
 
             item.prefabKeyword1 = Inscription.Key.Masterpiece;
             item.prefabKeyword2 = Inscription.Key.Execution;
@@ -519,7 +519,7 @@ public class CustomItems
 
             item.itemName = "Symbol of Confidence";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
-            item.itemLore = "A master strategist's offense is always backed up by a powerful defense.";
+            item.itemLore = "The blistering confidence brought by a strong defense makes the most powerful warriors.";
 
             item.prefabKeyword1 = Inscription.Key.Antique;
             item.prefabKeyword2 = Inscription.Key.Fortress;
@@ -549,7 +549,7 @@ public class CustomItems
             item.itemName = "Omen: Cryptic Collectible";
             item.itemDescription = "This item gais one random inscription.\n"
                                  + "When you have 14 or more different inscriptions, transform this item.";
-            item.itemLore = "The heart of a true collector desires what it desires. Even when it doesn't know what it contains.";
+            item.itemLore = "The heart of a true collector desires what it desires. Even when it doesn't know what lies inside.";
 
             item.prefabKeyword1 = Inscription.Key.Omen;
             item.prefabKeyword2 = Inscription.Key.None;
@@ -593,6 +593,7 @@ public class CustomItems
             };
 
             item.extraComponents = new[] {
+                typeof(OmenKeywordRandomizer), // Allows dropping the item with DevMenu or Machine
                 typeof(CloneCloneClone),
             };
 
