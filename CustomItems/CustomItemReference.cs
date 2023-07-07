@@ -71,7 +71,7 @@ public class CustomItemReference : ItemReference
             item._rarity = rarity;
             item._gearTag = gearTag;
 
-            item._groupItemKeys = forbiddenDrops;
+            item._groupItemKeys = forbiddenDrops.Select(name => "Custom-" + name).ToArray();
 
             LoadSprites();
             if (icon != null)
@@ -118,11 +118,8 @@ public class CustomItemReference : ItemReference
                     }
                 }
             }
-
-            //item.gameObject.SetActive(false);
         }
 
-        // TODO: Clone, like we did with the wheel.
         return item;
     }
 

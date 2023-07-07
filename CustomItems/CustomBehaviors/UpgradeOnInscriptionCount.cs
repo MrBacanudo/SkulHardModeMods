@@ -32,7 +32,7 @@ public sealed class UpgradeOnInscriptionCount : MonoBehaviour
         var inscriptions = Singleton<Service>.Instance.levelManager.player.playerComponents.inventory.synergy.inscriptions;
         var inscriptionNumber = inscriptions.Count((inscription) => inscription.count > 0);
 
-        if (inscriptionNumber >= 14) // TODO: set a parameter for this, and allow gettin from the CustomItems definition
+        if (inscriptionNumber >= 14) // TODO: set a parameter for this, and allow setting from CustomItemReference
         {
             ItemReference itemRef;
             if (GearResource.instance.TryGetItemReferenceByName(_item.name + "_2", out itemRef))

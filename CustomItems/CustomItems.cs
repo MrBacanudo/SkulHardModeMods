@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Characters;
 using Characters.Abilities;
 using Characters.Abilities.CharacterStat;
@@ -26,7 +27,7 @@ public class CustomItems
             item.rarity = Rarity.Legendary;
 
             item.itemName = "Orc King's Trusty Club";
-            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 150%.\nYou cannot deal <color=#1787D8>Magic damage</color>.";
+            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 100%.\nYou cannot deal <color=#1787D8>Magic damage</color>.";
             item.itemLore = "The weapon of the strongest Orc. Once plated in gold, but he could never maintain it; his brute strength would shatter it.";
 
             item.prefabKeyword1 = Inscription.Key.Brave;
@@ -37,7 +38,7 @@ public class CustomItems
             StatBonus bonus = new();
 
             bonus._stat = new Stat.Values(new Stat.Value[]{
-                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 1.5),
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 1.0),
                 new Stat.Value(Stat.Category.Percent, Stat.Kind.MagicAttackDamage, 0),
             });
 
@@ -53,7 +54,7 @@ public class CustomItems
             item.rarity = Rarity.Legendary;
 
             item.itemName = "Raven Lord's Medallion";
-            item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> by 150%.\nYou cannot deal <color=#F25D1C>Physical damage</color>.";
+            item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> by 100%.\nYou cannot deal <color=#F25D1C>Physical damage</color>.";
             item.itemLore = "Able to control his army of raven souls, the Raven Lord has never faced a physical confrontation for the rest of his life.";
 
             item.prefabKeyword1 = Inscription.Key.Wisdom;
@@ -64,7 +65,7 @@ public class CustomItems
             StatBonus bonus = new();
 
             bonus._stat = new Stat.Values(new Stat.Value[]{
-                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 1.5),
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 1.0),
                 new Stat.Value(Stat.Category.Percent, Stat.Kind.PhysicalAttackDamage, 0),
             });
 
@@ -626,29 +627,15 @@ public class CustomItems
 
     internal static List<Masterpiece.EnhancementMap> ListMasterpieces()
     {
-        List<Masterpiece.EnhancementMap> maps = new();
+        var masterpieces = Items.Where(i => (i.prefabKeyword1 == Inscription.Key.Masterpiece) || (i.prefabKeyword2 == Inscription.Key.Masterpiece))
+                                .ToDictionary(i => i.name);
 
-        // TODO: something not so ugly and O(N²)
-        foreach (var item in Items)
-        {
-            if (item.prefabKeyword1 != Inscription.Key.Masterpiece && item.prefabKeyword2 != Inscription.Key.Masterpiece)
-            {
-                continue;
-            }
-
-            foreach (var item2 in Items)
-            {
-                if (item2.name.Equals(item.name + "_2"))
-                {
-                    maps.Add(new()
-                    {
-                        _from = new AssetReference(item.guid),
-                        _to = new AssetReference(item2.guid),
-                    });
-                }
-            }
-        }
-
-        return maps;
+        return masterpieces.Where(item => masterpieces.ContainsKey(item.Key + "_2"))
+                           .Select(item => new Masterpiece.EnhancementMap()
+                           {
+                               _from = new AssetReference(item.Value.guid),
+                               _to = new AssetReference(masterpieces[item.Key + "_2"].guid),
+                           })
+                           .ToList();
     }
 }
