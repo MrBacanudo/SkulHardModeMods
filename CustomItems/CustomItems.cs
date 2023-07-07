@@ -548,7 +548,7 @@ public class CustomItems
             item.obtainable = false; // Omens should be unobtainable
 
             item.itemName = "Omen: Cryptic Collectible";
-            item.itemDescription = "This item gais one random inscription.\n"
+            item.itemDescription = "This item gains one random inscription.\n"
                                  + "When you have 14 or more different inscriptions, transform this item.";
             item.itemLore = "The heart of a true collector desires what it desires. Even when it doesn't know what lies inside.";
 
@@ -575,7 +575,7 @@ public class CustomItems
             item.rarity = Rarity.Unique;
 
             item.itemName = "Omen: Idol of Insanity";
-            item.itemDescription = "This item gais one random inscription.\n"
+            item.itemDescription = "This item gains one random inscription.\n"
                                  + "Increases the number of each inscription you have by 1.\n"
                                  + "Increases Collection Desire's inscription requirement by 1.";
             item.itemLore = "I DON'T DESIRE ANYTHING ANYMORE! I HAVE EVERYTHING I'VE EVER WANTED!";

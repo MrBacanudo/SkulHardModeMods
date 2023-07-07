@@ -12,7 +12,7 @@ public class StatBonusPerHPPercent : Ability, ICloneable
     {
         private Stat.Values _stats;
 
-        public override int iconStacks => (int)owner.health.percent * 100;
+        public override int iconStacks => (int)(owner.health.percent * 100);
 
         public Instance(Character owner, StatBonusPerHPPercent ability) : base(owner, ability)
         {
