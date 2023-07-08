@@ -84,7 +84,6 @@ public class CustomItemsPatch
         }
     }
 
-    // TODO: Undo dupe
     [HarmonyPostfix]
     [HarmonyPatch(typeof(GearReference), "LoadAsync")]
     static void RegisterGearRequest(ref GearReference __instance, ref GearRequest __result)
@@ -101,43 +100,35 @@ public class CustomItemsPatch
     [HarmonyPatch(typeof(LevelManager), "DropItem", new Type[] { typeof(ItemRequest), typeof(Vector3) })]
     static bool DropCustomItem(ref LevelManager __instance, ItemRequest gearRequest, Vector3 position, ref Item __result)
     {
-        // We leave it to the game in case it's not a custom item
-        if (!currentRequests.ContainsKey(gearRequest))
-        {
-            return true;
-        }
-
-        var customItem = currentRequests[gearRequest];
-
-        // Now we drop our item and skip the regular process
-        var originalItem = customItem.GetItem(gearRequest.asset.gameObject.GetComponent<Item>());
-        //originalItem.gameObject.SetActive(true);
-        __result = __instance.DropItem(originalItem, position);
-        //originalItem.gameObject.SetActive(false);
-        currentRequests.Remove(gearRequest);
-
-        return false;
+        return ProcessDrop(ref __instance, gearRequest, position, ref __result, currentRequests);
     }
 
-    // TODO: undo ugly duplication
     [HarmonyPrefix]
     [HarmonyPatch(typeof(LevelManager), "DropGear", new Type[] { typeof(GearRequest), typeof(Vector3) })]
     static bool DropCustomGear(ref LevelManager __instance, GearRequest gearRequest, Vector3 position, ref Gear __result)
     {
+        return ProcessDrop(ref __instance, gearRequest, position, ref __result, currentGearRequests);
+    }
+
+    private static bool ProcessDrop<TRequest, TResult>(ref LevelManager __instance,
+                                                       TRequest request, Vector3 position,
+                                                       ref TResult __result,
+                                                       Dictionary<TRequest, CustomItemReference> requestDict)
+        where TResult : Gear
+        where TRequest : Request<TResult>
+    {
         // We leave it to the game in case it's not a custom item
-        if (!currentGearRequests.ContainsKey(gearRequest))
+        if (!requestDict.ContainsKey(request))
         {
             return true;
         }
 
-        var customItem = currentGearRequests[gearRequest];
+        var customItem = requestDict[request];
 
         // Now we drop our item and skip the regular process
-        var originalItem = customItem.GetItem(gearRequest.asset.gameObject.GetComponent<Item>());
-        //originalItem.gameObject.SetActive(true);
-        __result = __instance.DropItem(originalItem, position);
-        //originalItem.gameObject.SetActive(false);
-        currentGearRequests.Remove(gearRequest);
+        var originalItem = customItem.GetItem(request.asset.gameObject.GetComponent<Item>());
+        __result = (TResult)(Gear)__instance.DropItem(originalItem, position);
+        requestDict.Remove(request);
 
         return false;
     }
