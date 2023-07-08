@@ -1,19 +1,21 @@
 # SkulHardModeMods
 **Experimental** Mods for the Dark Mirror of Skul: the Hero Slayer, PC/Steam Version
 
-**Use them at your own risk!**
+The mod content is provided as-is and has no warranties. **Use them at your own risk!**
 
-## Automatic Installation
+## Installing the mods through the Thunderstore
 
-1. Download the [Downloader Executable](https://github.com/MrBacanudo/SkulHardModeMods/releases/download/HardModeModPack-v0.0.5/SkulModDownloader.exe)
-   * ⚠️ **Some anti-viruses will incorrectly report this as malware!** ⚠️ If having any issues, try the alternative installation methods below.
-2. Unblock the executable, telling Windows you trust me
-   * If you don't, Windows may prevent you from installing the mod
-3. Double click the executable
-   * If you see a prompt looking for a folder, select the Skul game folder
-4. Success! <sup>(probably)</sup>
+The Thunderstore provides us with a cool UI for automatic installation and updates for
+[Mods](https://thunderstore.io/c/skul-the-hero-slayer/?ordering=most-downloaded) and [Mod packs](https://thunderstore.io/c/skul-the-hero-slayer/?ordering=most-downloaded&section=modpacks).
+It is the recommended way of modding going forward.
 
-## Automatic Installation (Old)
+1. Download the [latest r2modmanPlus](https://github.com/ebkr/r2modmanPlus/releases/latest)
+2. Run it, find Skul: the Hero slayer
+3. Install BepInEx with the installer
+4. Install all the mods and/or modpacks you want!
+5. Click "Run with mods"!
+
+## Automatic Installation with PowerShell script (Old method)
 
 1. Download the [Downloader script](Downloader.ps1)
    * Shortcut: Right click [this link](https://raw.githubusercontent.com/MrBacanudo/SkulHardModeMods/main/Downloader.ps1) and `Save Link As...` to download the script
@@ -25,7 +27,7 @@
       * You can find this by right clicking Skul on Steam -> Properties -> Local Files -> Browse
 4. If everything runs correctly, that should be it!
 
-## Manual Installation
+## Manual Installation (Advanced)
 
 1. Download the external dependencies
     * BepInEx (Windows x64): https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_x64_5.4.21.0.zip
