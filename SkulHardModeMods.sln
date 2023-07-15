@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeSkulls", "ThreeSkulls\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomItems", "CustomItems\CustomItems.csproj", "{2664CF7F-8F2D-4A67-A558-912723FD4CB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevMenuTurbo", "DevMenuTurbo\DevMenuTurbo.csproj", "{523A2AB4-037F-4386-AC95-42D9598C2123}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +116,9 @@ Global
 		{2664CF7F-8F2D-4A67-A558-912723FD4CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2664CF7F-8F2D-4A67-A558-912723FD4CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2664CF7F-8F2D-4A67-A558-912723FD4CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523A2AB4-037F-4386-AC95-42D9598C2123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523A2AB4-037F-4386-AC95-42D9598C2123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523A2AB4-037F-4386-AC95-42D9598C2123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523A2AB4-037F-4386-AC95-42D9598C2123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

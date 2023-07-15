@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <AssemblyName>DevMenuTurbo</AssemblyName>
+    <Description>Access the Secret Developer "Cheat Menu", with improvements!</Description>
+    <Version>0.0.1</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>DevMenu</RootNamespace>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <NoWarn>$(NoWarn);CS0436</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SkulRoot Condition="'$(OS)' == 'Windows_NT' And Exists('$(PROGRAMFILES)\Steam\steamapps\common\Skul\Skul.exe')">$(PROGRAMFILES)\Steam\steamapps\common\Skul</SkulRoot>
+    <SkulRoot Condition="'$(OS)' == 'Windows_NT' And Exists('$(MSBuildProgramFiles32)\Steam\steamapps\common\Skul\Skul.exe')">$(MSBuildProgramFiles32)\Steam\steamapps\common\Skul</SkulRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2020.3.34" IncludeAssets="compile" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Package to easily set everything as public -->
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.0" />
+
+    <Reference Include="Assembly-CSharp" Publicize="true">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass" Publicize="true">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Plugins.Singletons" Publicize="true">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/Plugins.Singletons.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(SkulRoot)/Skul_Data/Managed/Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
