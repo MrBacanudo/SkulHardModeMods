@@ -17,7 +17,7 @@ public class StatBonusByGoldAmount : Ability, ICloneable
 
         private Stat.Values _stat;
 
-        private int _stack;
+        private int _stack = -1; // Negative value guarantees correct initialization when 0
 
         public override int iconStacks => _stack;
 

@@ -26,6 +26,11 @@ public class CustomItemsPatch
 
     private static Dictionary<string, string> ItemStrings = new();
 
+    // This should allow other mods to translate the items contained here.
+    // If you want to provide one, ensure this runs after InjectCustomItems.
+    // A guaranteed way should be postfixing the method we prefix with it.
+    public static readonly Dictionary<string, string> ItemStringsOverride = new();
+
     // Inject our custom items to the game's list of items.
     // This only runs once, at the beginning of the game. So loading a save should also work.
     [HarmonyPrefix]
@@ -137,6 +142,12 @@ public class CustomItemsPatch
     [HarmonyPatch(typeof(Localization), "GetLocalizedString", new Type[] { typeof(string) })]
     static bool InjectCustomStrings(string key, ref string __result)
     {
+        if (ItemStringsOverride.ContainsKey(key))
+        {
+            __result = ItemStringsOverride[key];
+            return false;
+        }
+
         if (!ItemStrings.ContainsKey(key))
         {
             return true;

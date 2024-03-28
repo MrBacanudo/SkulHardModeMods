@@ -26,7 +26,7 @@ public class CustomItems
             item.name = "DecidedlyPhysical";
             item.rarity = Rarity.Legendary;
 
-            item.itemName = "Orc King's Trusty Club";
+            item.itemName = "Orc King's Bonker";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 100%.\nYou cannot deal <color=#1787D8>Magic damage</color>.";
             item.itemLore = "The weapon of the strongest Orc. Once plated in gold, but he could never maintain it; his brute strength would shatter it.";
 
@@ -336,6 +336,7 @@ public class CustomItems
                 },
                 new StatBonusByInscriptionCount(){
                     _keys = new[]{Inscription.Key.Treasure},
+                    _type = StatBonusByInscriptionCount.Type.Count,
                     _statPerStack = new Stat.Values(new Stat.Value[] {
                         new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 0.2),
                         new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 0.2),
@@ -352,7 +353,7 @@ public class CustomItems
             item.rarity = Rarity.Legendary;
 
             item.itemName = "Pandora's Box";
-            item.itemDescription = "Upon pickup, replace each item with a random item of higher rarity.\nYou gain 500 gold per item destroyed.";
+            item.itemDescription = "Upon pickup, replace each item with a random item of higher rarity.\nYou gain 500 gold per item transformed this way.";
             item.itemLore = "\"This is my own special gift to you. Don't ever open it.\"";
 
             item.prefabKeyword1 = Inscription.Key.Heirloom;
