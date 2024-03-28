@@ -18,6 +18,13 @@ public class FixNPCPatch
         __instance._random.Next();
     }
 
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(FieldDruid), "Start")]
+    static void FixDruidRNG(ref FieldDruid __instance)
+    {
+        __instance._random.Next();
+    }
+
     [HarmonyPrefix]
     [HarmonyPatch(typeof(MagicalSlime), "CPolymorphToRandomItem")]
     static void FixSlimeRNG(ref MagicalSlime __instance, ref Item targetItem)
