@@ -142,7 +142,8 @@ public class CustomItems
             item.itemName = "Elementalist's Staff";
             item.itemDescription = "Increases <color=#1787D8>Magic Attack</color> by 25%.\n"
                                 + "Skills have +5% chance to inflict Freeze or Burn.\n"
-                                + "(Freeze bonus has a cooldown of 2 seconds.)";
+                                + "(Freeze bonus has a cooldown of 2 seconds.)\n"
+                                + "If <u>all</u> enemies are burning, amplifies <color=#1787D8>Magic Attack</color> by 20%.";
             item.itemLore = "Only a true master of the elements could learn how to set ice on fire.";
 
             item.prefabKeyword1 = Inscription.Key.Arson;
@@ -154,7 +155,13 @@ public class CustomItems
 
             Kind[] statuses = { Kind.Freeze, Kind.Burn };
 
-            item.abilities = new Ability[statuses.Length];
+            item.abilities = new Ability[statuses.Length + 1];
+
+            item.abilities[0] = new StatBonusIfAllEnemiesAreAffectedByStatus
+            {
+                _stats = new Stat.Values(new Stat.Value[] { new Stat.Value(Stat.Category.Percent, Stat.Kind.MagicAttackDamage, 1.20) }),
+                _status = Kind.Burn
+            };
 
             for (int i = 0; i < statuses.Length; i++)
             {
@@ -172,7 +179,7 @@ public class CustomItems
 
                 ability._status = new CharacterStatus.ApplyInfo(status);
 
-                item.abilities[i] = ability;
+                item.abilities[i + 1] = ability;
             }
 
             items.Add(item);
@@ -185,7 +192,8 @@ public class CustomItems
 
             item.itemName = "Poisoned Rope Dart";
             item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> by 25%.\n"
-                                + "Skills have +5% chance to inflict Poison or Wound.";
+                                + "Skills have +5% chance to inflict Poison or Wound.\n"
+                                + "If <u>all</u> enemies are poisoned, amplifies <color=#F25D1C>Physical Attack</color> by 20%.";
             item.itemLore = "In skilled hands, this kunai brings death as swiftly as a Scorpion's sting.";
 
             item.prefabKeyword1 = Inscription.Key.Poisoning;
@@ -197,7 +205,13 @@ public class CustomItems
 
             Kind[] statuses = { Kind.Wound, Kind.Poison };
 
-            item.abilities = new Ability[statuses.Length];
+            item.abilities = new Ability[statuses.Length + 1];
+
+            item.abilities[0] = new StatBonusIfAllEnemiesAreAffectedByStatus
+            {
+                _stats = new Stat.Values(new Stat.Value[] { new Stat.Value(Stat.Category.Percent, Stat.Kind.PhysicalAttackDamage, 1.20) }),
+                _status = Kind.Poison
+            };
 
             for (int i = 0; i < statuses.Length; i++)
             {
@@ -215,7 +229,7 @@ public class CustomItems
 
                 ability._status = new CharacterStatus.ApplyInfo(status);
 
-                item.abilities[i] = ability;
+                item.abilities[i + 1] = ability;
             }
 
             items.Add(item);
@@ -520,13 +534,16 @@ public class CustomItems
             item.rarity = Rarity.Unique;
 
             item.itemName = "Symbol of Confidence";
-            item.itemDescription = "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
+            item.itemDescription = "Decreases incoming damage by 25%.\n"
+                                 + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by up to 100%, equal to your current HP %.";
             item.itemLore = "The blistering confidence brought by a strong defense makes the most powerful warriors.";
 
             item.prefabKeyword1 = Inscription.Key.Antique;
             item.prefabKeyword2 = Inscription.Key.Fortress;
 
-            item.stats = new Stat.Values(new Stat.Value[] { });
+            item.stats = new Stat.Values(new Stat.Value[]{
+                new Stat.Value(Stat.Category.Percent, Stat.Kind.TakingDamage, 0.75)
+            });
 
             StatBonusPerHPPercent bonus = new();
 
