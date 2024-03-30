@@ -301,6 +301,44 @@ public class CustomItems
 
         {
             var item = new CustomItemReference();
+            item.name = "BoneOfJumps_BoneUpgrade";
+            item.rarity = Rarity.Common;
+
+            item.obtainable = false;
+
+            item.itemName = "Bone of Eternity: Wing";
+            item.itemDescription = "Grants 2 extra jumps and decreases gravity by 60%.\n"
+                                 + "(Gargoyle: reduces falling speed while attacking or using skills instead)\n"
+                                 + "Increases <color=#F25D1C>Physical Attack</color> and <color=#1787D8>Magic Attack</color> by 50% while in midair.";
+            item.itemLore = "Float like a cloud, sting like a swarm of bees!";
+
+            item.prefabKeyword1 = Inscription.Key.Bone;
+            item.prefabKeyword2 = Inscription.Key.Soar;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            AddAirJumpCount jumpAbility = new() { _count = 2 };
+
+            StatBonusByAirTime bonus = new();
+
+            bonus._timeToMaxStat = 0.01f;
+            bonus._remainTimeOnGround = 0.0f;
+            bonus._maxStat = new Stat.Values(new Stat.Value[] {
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.PhysicalAttackDamage, 0.5),
+                new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.MagicAttackDamage, 0.5),
+            });
+
+            GravityScale gravityAbility = new() { amount = 0.4f };
+
+            item.abilities = new Ability[] { bonus, jumpAbility, gravityAbility };
+
+            item.forbiddenDrops = new[] { "BoneOfJumps" };
+
+            items.Add(item);
+        }
+
+        {
+            var item = new CustomItemReference();
             item.name = "TalariaOfMercury";
             item.rarity = Rarity.Unique;
 
@@ -385,10 +423,10 @@ public class CustomItems
         {
             var item = new CustomItemReference();
             item.name = "QuintDamageBuff";
-            item.rarity = Rarity.Rare;
+            item.rarity = Rarity.Unique;
 
             item.itemName = "Claws of Raptor";
-            item.itemDescription = "Amplifies Quintessence damage by 30%.\nIncreases crit damage by 15%.";
+            item.itemDescription = "Increases crit damage by 15%.\nQuintessences can crit.";
             item.itemLore = "No one has ever seen the monster that possessed such powerful claws and survived to tell the story.";
 
             item.prefabKeyword1 = Inscription.Key.Heritage;
@@ -398,17 +436,10 @@ public class CustomItems
                 new Stat.Value(Stat.Category.PercentPoint, Stat.Kind.CriticalDamage, 0.15),
             });
 
-            ModifyDamage quintDamage = new();
-
-            quintDamage._attackTypes = new();
-            quintDamage._attackTypes[Damage.MotionType.Quintessence] = true;
-
-            quintDamage._damageTypes = new(new[] { true, true, true, true, true });
-
-            quintDamage._damagePercent = 1.3f;
-
             item.abilities = new Ability[] {
-                quintDamage
+                new AdditionalCritReroll() {
+                    motionType = MotionType.Quintessence
+                }
             };
 
             items.Add(item);
@@ -510,7 +541,7 @@ public class CustomItems
             item.name = "AdventurerKiller";
             item.rarity = Rarity.Unique;
 
-            item.itemName = "Soul Extractor";
+            item.itemName = "Soul Ripper";
             item.itemDescription = "Upon killing an adventurer, this item disappears and that adventurer's Legendary item is dropped.";
             item.itemLore = "One's soul is the source of their most desirable posessions.";
 
@@ -621,6 +652,45 @@ public class CustomItems
             items.Add(item);
         }
 
+        {
+            var item = new CustomItemReference();
+            item.name = "OmenClone_2_BoneUpgrade";
+            item.obtainable = false; // Omens are not obtainable, and neither should be evolutions.
+            item.rarity = Rarity.Unique;
+
+            item.itemName = "Omen: Bony Idol of Eternal Insanity";
+            item.itemDescription = "Increases the number of each inscription you have by 1.\n"
+                                 + "Increases Collection Desire's inscription requirement by 1.\n"
+                                 + "Decreases the Bone inscription activation requirement by 1 swap.";
+            item.itemLore = "Yo dawg, I heard you like Bone! So I put a Bone inside this Bone item so you can use more Bone against Evil Little Bone!";
+
+            // Omens are unobtainable, so they are found by their tag.
+            // So we don't put the Omen tag or inscription here, and leave for the evolution process to copy them.
+            // The Bone upgrade process works the same, copying the item's inscription. So we're fine here.
+            item.prefabKeyword1 = Inscription.Key.None;
+            item.prefabKeyword2 = Inscription.Key.Bone;
+
+            item.stats = new Stat.Values(new Stat.Value[] { });
+
+            item.abilities = new Ability[] {
+                new NerfCollectionDesire(){
+                    _count = 1
+                },
+                new ReduceBoneInscriptionRequirement(){
+                    _count = 1
+                }
+            };
+
+            item.extraComponents = new[] {
+                typeof(DelayedOmenAssigner), // To allow people dropping it from the DevMenu
+                typeof(CloneCloneClone),
+            };
+
+            item.forbiddenDrops = new[] { "OmenClone", "OmenClone_2" };
+
+            items.Add(item);
+        }
+
         return items;
     }
 
@@ -655,5 +725,18 @@ public class CustomItems
                                _to = new AssetReference(masterpieces[item.Key + "_2"].guid),
                            })
                            .ToList();
+    }
+
+    internal static List<Bone.SuperAbility.EnhancementMap> ListUpgradableBones()
+    {
+        var items = Items.ToDictionary(i => i.name);
+
+        return items.Where(item => items.ContainsKey(item.Key + "_BoneUpgrade"))
+                    .Select(item => new Bone.SuperAbility.EnhancementMap()
+                    {
+                        _from = new AssetReference(item.Value.guid),
+                        _to = new AssetReference(items[item.Key + "_BoneUpgrade"].guid),
+                    })
+                    .ToList();
     }
 }
