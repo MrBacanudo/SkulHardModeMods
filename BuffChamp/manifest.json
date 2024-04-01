@@ -1,0 +1,7 @@
+{
+    "name": "BuffChamp",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Tries to balance the Champion skull, as per Haxa's suggestions.",
+    "dependencies": []
+}
