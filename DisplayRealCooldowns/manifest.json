@@ -1,0 +1,7 @@
+{
+    "name": "DisplayRealCooldowns",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/MrBacanudo/SkulHardModeMods",
+    "description": "Displays the real cooldown time of skills and quintessences",
+    "dependencies": []
+}

@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevMenuTurbo", "DevMenuTurb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuffChamp", "BuffChamp\BuffChamp.csproj", "{7E2395C9-A378-41DA-AE06-C1898513ED02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayRealCooldowns", "DisplayRealCooldowns\DisplayRealCooldowns.csproj", "{E9BA6E57-4A8C-4C03-A100-134219FB1F43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,5 +128,9 @@ Global
 		{7E2395C9-A378-41DA-AE06-C1898513ED02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E2395C9-A378-41DA-AE06-C1898513ED02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E2395C9-A378-41DA-AE06-C1898513ED02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BA6E57-4A8C-4C03-A100-134219FB1F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BA6E57-4A8C-4C03-A100-134219FB1F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BA6E57-4A8C-4C03-A100-134219FB1F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BA6E57-4A8C-4C03-A100-134219FB1F43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
