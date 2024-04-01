@@ -16,3 +16,4 @@ Mods included:
 10. [Start with random picks, if you want](https://thunderstore.io/c/skul-the-hero-slayer/p/MrBacanudo/RandomStart/)
 11. [Pick any dark curse in the game](https://thunderstore.io/c/skul-the-hero-slayer/p/MrBacanudo/RerollCurses/)
 12. [Start with any skills you want](https://thunderstore.io/c/skul-the-hero-slayer/p/MrBacanudo/RerollsOnCastle/)
+13. [See real skill cooldowns](https://thunderstore.io/c/skul-the-hero-slayer/p/MrBacanudo/DisplayRealCooldowns/)

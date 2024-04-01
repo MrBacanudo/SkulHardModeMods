@@ -15,18 +15,6 @@ It is the recommended way of modding going forward.
 4. Install all the mods and/or modpacks you want!
 5. Click "Run with mods"!
 
-## Automatic Installation with PowerShell script (Old method)
-
-1. Download the [Downloader script](Downloader.ps1)
-   * Shortcut: Right click [this link](https://raw.githubusercontent.com/MrBacanudo/SkulHardModeMods/main/Downloader.ps1) and `Save Link As...` to download the script
-2. Run with PowerShell
-    * Right-clicking the file and selecting "Run with PowerShell" should work.
-    * No PowerShell in your machine? [Learn how to Download Powershell here](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)
-3. Select the game folder (you may need to minimize your windows to see the dialog)
-    * Default is `C:\Program Files (x86)\Steam\steamapps\common\Skul` or `C:\Program Files\Steam\steamapps\common\Skul`
-      * You can find this by right clicking Skul on Steam -> Properties -> Local Files -> Browse
-4. If everything runs correctly, that should be it!
-
 ## Manual Installation (Advanced)
 
 1. Download the external dependencies
@@ -38,10 +26,16 @@ It is the recommended way of modding going forward.
       * You can find this by right clicking Skul on Steam -> Properties -> Local Files -> Browse
     * BepInEx must be extracted to the game's root folder (i.e. you must see `winhttp.dll` and `doorstop_config.ini` in that folder)
     * The other two must be extracted inside the `2020.3.34` folder (the same folder!)
+    * The state of your Skul folder should then be:
+        1. Original Skul game files (we don't replace anything!)
+        2. `BepInEx` folder
+        3. `2020.3.34` folder, with about 79 files and no folders inside
+        4. `doorstop_config.ini` and `winhttp.dll` files
 3. Edit the new `doorstop_config.ini` file inside the game folder:
     * Change the last line from `dllSearchPathOverride=` to `dllSearchPathOverride=2020.3.34`
 4. Download the mods! Latest one here: https://github.com/MrBacanudo/SkulHardModeMods/releases/latest
 5. Put the mods you want into the `BepInEx/plugins` folder inside your game folder
+    * If the `plugins` folder doesn't exist, create it inside `BepInEx`
     * You're allowed to mix or just use what you want!
 
 Enjoy!
